@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DNL Insight</title>
+<meta name="apple-mobile-web-app-title" content="DNL Insight">
+<meta name="application-name" content="DNL Insight">
+<meta name="theme-color" content="#03163A">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="robots" content="noindex, nofollow">
+<script>
+  // Mở từ biểu tượng trên màn hình chính → chuyển thẳng vào DNL Insight.
+  // Liên kết cài đặt có "?cai" → giữ trang hướng dẫn, rồi xoá "?cai" để biểu tượng lưu địa chỉ gốc.
+  var APP = 'https://script.google.com/macros/s/AKfycbx2bUiit5uLL9PtMnyqoyJ3LaOMsYtHILrlsBDR2puzaUB4hCnwqS4jPQ9J8SKa-t90/exec';
+  var setup = /[?&]cai\b/.test(location.search);
+  if (!setup) location.replace(APP);
+  else history.replaceState(null, '', location.pathname);
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; background: linear-gradient(160deg, #03163A, #08316E 55%, #0C57A8); color: #EAF2FF;
+         font: 16px/1.55 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; display: flex; align-items: center; justify-content: center; }
+  .card { max-width: 420px; padding: 32px 22px; text-align: center; }
+  img { width: 132px; height: 132px; border-radius: 30px; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+  h1 { font-size: 24px; margin: 18px 0 4px; }
+  .sub { color: #F2C14E; margin: 0 0 22px; }
+  ol { text-align: left; background: rgba(255,255,255,.07); border-radius: 14px; padding: 16px 16px 16px 36px; margin: 0 0 20px; }
+  li { margin: 6px 0; }
+  a.btn { display: inline-block; background: #F2C14E; color: #03163A; font-weight: 700; text-decoration: none; padding: 12px 26px; border-radius: 12px; }
+  .note { font-size: 13px; color: #A9C3E8; margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="card" id="card" hidden>
+  <img src="apple-touch-icon.png" alt="DNL Insight">
+  <h1>DNL Insight</h1>
+  <p class="sub">Phòng KHDN Lớn · VietinBank CN TP.HCM</p>
+  <ol>
+    <li><b>iPhone (Safari):</b> bấm nút Chia sẻ <b>⬆︎</b> → chọn <b>Thêm vào MH chính</b> → <b>Thêm</b>.</li>
+    <li><b>Android (Chrome):</b> bấm <b>⋮</b> → <b>Thêm vào màn hình chính</b> → <b>Thêm</b>.</li>
+    <li>Từ nay mở DNL Insight bằng biểu tượng vừa thêm.</li>
+  </ol>
+  <a class="btn" id="go" href="#">Mở DNL Insight ngay</a>
+  <p class="note">Nếu đã thêm biểu tượng cũ (ô xám chữ “D”), anh/chị xoá biểu tượng cũ đi.</p>
+</div>
+<script>
+  if (setup) { document.getElementById('card').hidden = false; document.getElementById('go').href = APP; }
+</script>
+</body>
+</html>
